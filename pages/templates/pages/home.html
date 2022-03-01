@@ -5,13 +5,5 @@
 {% block title %}Homepage{% endblock title %}
 
 {% block content %}
-    <div class="center">
-    {% if user.socialaccount_set %}
-        {% get_social_accounts user as accounts %}
-            {% if accounts %}
-              <p>Hello, {{ user.first_name }}</p>
-              <img src="{{ user.profile.avatar_url }}" alt="avatar">
-            {% endif %}
-    {% endif %}
-    </div>
+    У вас нет ни одного воспоминания
 {% endblock content %}

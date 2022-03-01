@@ -124,6 +124,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+STATIC_ROOT = BASE_DIR/'staticfiles'
 STATIC_URL = 'static/'
 
 # Default primary key field type
@@ -131,15 +132,19 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = [BASE_DIR/'places_remember_proj/static', ]
-
 AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
+
+STATICFILES_DIRS = [
+    BASE_DIR/'places_remember_proj/static',
+]
 
 SITE_ID = 1
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 LOGIN_REDIRECT_URL = 'home'
+
+ACCOUNT_LOGOUT_ON_GET = True
