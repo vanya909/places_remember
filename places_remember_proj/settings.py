@@ -63,7 +63,8 @@ ROOT_URLCONF = 'places_remember_proj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/'places_remember_proj/templates'],
+        'DIRS': [BASE_DIR/'places_remember_proj/templates',
+                 BASE_DIR/'places_remember_proj/templates/allauth'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
