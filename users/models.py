@@ -2,6 +2,7 @@ from allauth.account.signals import user_signed_up
 from django.dispatch import receiver
 from django.db import models
 from django.contrib.auth import get_user_model
+from places.fields import PlacesField
 
 
 class UserProfile(models.Model):
@@ -12,8 +13,14 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
-    class Meta():
+    class Meta:
         db_table = 'user_profile'
+
+
+class Location(models.Model):
+    location = PlacesField()
+    comment = models.TextField(blank=True, null=True)
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='location')
 
 
 @receiver(user_signed_up)

@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'users.apps.UsersConfig',
 
+    'places',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -149,3 +151,8 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 LOGIN_REDIRECT_URL = 'home'
 
 ACCOUNT_LOGOUT_ON_GET = True
+
+PLACES_MAPS_API_KEY = 'AIzaSyD7OaJ45sw5TVoCRQfqjG-QYiscJ8WoNgw'
+PLACES_MAP_WIDGET_HEIGHT = 480
+PLACES_MAP_OPTIONS = '{"center": { "lat": 56.01528339999999, "lng": 92.8932476 }, "zoom": 10}'
+PLACES_MARKER_OPTIONS = '{"draggable": true}'
