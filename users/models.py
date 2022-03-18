@@ -6,21 +6,23 @@ from places.fields import PlacesField
 
 
 class UserProfile(models.Model):
-    User = get_user_model()
-    user = models.OneToOneField(User, verbose_name='user', related_name='profile', on_delete=models.CASCADE)
+    user = models.OneToOneField(get_user_model(), verbose_name='user', related_name='profile', on_delete=models.CASCADE)
     avatar_url = models.CharField(max_length=256, blank=True, null=True)
 
     def __str__(self):
-        return self.user.username
+        return str(self.user)
 
     class Meta:
         db_table = 'user_profile'
 
 
-class Location(models.Model):
+class Place(models.Model):
     location = PlacesField()
     comment = models.TextField(blank=True, null=True)
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='location')
+
+    def __str__(self):
+        return str(self.location)
 
 
 @receiver(user_signed_up)
